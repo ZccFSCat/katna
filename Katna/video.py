@@ -319,7 +319,8 @@ class Video(object):
             top_frames = self._extract_keyframes_from_video(no_of_frames, file_path)
 
         writer.write(file_path, top_frames)
-        print("Completed processing for : ", file_path)
+        return top_frames  
+    
 
     def _split_large_video(self, file_path):
         """
