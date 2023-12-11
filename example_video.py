@@ -48,39 +48,14 @@ def main_dir():
     )    
 
 
-def main1():
 
-    # Extract specific number of key frames from video
-    # if os.name == 'nt':
-    #     multiprocessing.freeze_support()
-
-    if len(sys.argv) ==1:
-        video_file_path = os.path.join(".", "tests", "data", "test001.mp4")
-    else:
-        video_file_path = sys.argv[1]
-       
-    vd = Video()
-
-    # number of images to be returned
-    no_of_frames_to_returned = 12
-
-    diskwriter = KeyFrameDiskWriter(location="selectedframes")
-
-    # VIdeo file path
-    #video_file_path = os.path.join(".", "tests", "data", "pos_video.mp4")
-    print(f"Input video file path = {video_file_path}")
-
-    vd.extract_video_keyframes(
-        no_of_frames=no_of_frames_to_returned, file_path=video_file_path,
-        writer=diskwriter
-    )
 def main():
 
     # Extract specific number of key frames from video
     # if os.name == 'nt':
     #     multiprocessing.freeze_support()
 
-        video_file_path = os.path.join(".", "tests", "data", "test001.mp4")
+    video_file_path = os.path.join(".", "tests", "data", "test001.mp4")
     
        
     vd = Video()
@@ -102,6 +77,8 @@ def main():
     for num,frame in enumerate(top_frames):
         img = Image.fromarray((frame).astype('uint8'))
         img.save(f"output/{str(num)}.jpeg")
+
+
 
 if __name__ == "__main__":
     multiprocessing.set_start_method("spawn")
